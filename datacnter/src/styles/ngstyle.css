@@ -1,0 +1,19 @@
+.container{
+    border: 2px solid black;
+    display: flex;
+  justify-content:left;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.c1{
+    border: 2px solid orange;
+    height: 2.5rem;
+    width: 9rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    padding: 12px;
+}
+
