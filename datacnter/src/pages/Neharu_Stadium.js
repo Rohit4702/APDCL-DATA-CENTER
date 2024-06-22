@@ -24,9 +24,9 @@ export default function Neharu_Stadium() {
             </div>
 
             <div>
-    <div>11KV_MEDICAL</div>
-    <Medical />
-</div>
+                <div>11KV_MEDICAL</div>
+                <Medical />
+            </div>
         </div>
     );
 }

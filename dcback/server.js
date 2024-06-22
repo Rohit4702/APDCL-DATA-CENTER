@@ -164,17 +164,21 @@ app.get('/api/fidder/:placename', cors(), async (req, res) => {
 
 
 
-app.get('/api/medical/:placename',cors(), async (req, resp) => {
+app.get('/api/medicalp/:placename',cors(), async (req, resp) => {
     const placeName = req.params.placename;
     try {
         const result = await data_center.findOne({ feeder: placeName });
         if (result) {
             resp.json(result);
         } else {
-            resp.status(404).send('Place not found');
+            resp.status(404).json(0);          ////////////////////
         }
     } catch (err) {
-        console.log(err);
+        if (err.response && err.response.status === 404) {
+            console.log("false",false)
+            
+        }
+        console.log("fldskgopkogskgpo");
         resp.status(500).send('Internal Server Error');
     }
 });

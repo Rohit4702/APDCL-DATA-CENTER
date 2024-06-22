@@ -1,64 +1,104 @@
-import React from 'react';
-import '../styles/ngstyle.css'
-import { useNavigate,Link } from 'react-router';
-import Neharu_Stadium_data from '../components/Neharu_Stadium_data';
-import Bamunimaidan_data from '../components/Bamunimaidan_data';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
+function Ng() {
+    const [con, setCon] = useState(false);
+    const navigate = useNavigate();
 
- function Ng() {
-  const navigate = useNavigate();
+    const Uzanbazar = () => {
+        navigate('/uzanbazar');
+    };
 
+    const Paltanbazar = () => {
+        navigate('/paltanbazar');
+    };
 
-  const Uzanbazar=()=>{
-    navigate('/uzanbazar')
-  }
+    const Medical = () => {
+        navigate('/Medical');
+    };
 
+    const Jail = () => {
+        navigate('/Jail');
+    };
 
-  const Paltanbazar=()=>{
-    navigate('/paltanbazar')
-  }
+    const Kalapahar = () => {
+        navigate('/kalapahar');
+    };
 
-  const Medical=()=>{
-    navigate('/Medical')
-  }
+    const Jalukbari = () => {
+        navigate('/jalukbari');
+    };
 
+    const Neharu_Stadium_data = () => {
+        navigate('/neharustadium');
+    };
 
-  const Jail=()=>{
-    navigate('/Jail')
-  }
+    const Bamunimaidan = () => {
+        navigate('/bamunimaidan');
+    };
 
-  const Kalapahar=()=>{
-    navigate('/kalapahar')
-  }
+    useEffect(() => {
+        const fetchMedicalData = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/api/medical/11KV_KACHARI_BASTI');
+                if (response.ok) {
+                    const data = await response.json();
+                    // Check if data is 0 (place not found)
+                    if (data === 0) {
+                        setCon(false); // Place not found, set con to false
+                    } else {
+                        setCon(true); // Place found, set con to true
+                    }
+                } else {
+                    setCon(false); // Place not found, set con to false
+                    console.error('Failed to fetch medical data');
+                }
+            } catch (error) {
+                console.error('Error fetching medical data:', error);
+            }
+        };
 
-  const Jalukbari=()=>{
-    navigate('/jalukbari')
-  }
+        fetchMedicalData(); // Call fetch function immediately
+        const cheakinterval=setInterval(fetchMedicalData,10000);
 
- 
+        return () => clearInterval(cheakinterval); // Cleanup interval on component unmount
 
-  const Neharu_Stadium_data=()=>{
-    navigate('/neharustadium')
+    }, []); // Empty dependency array means this effect runs only once
 
-  }
+    useEffect(() => {
+        console.log('conconconcon medical:', con); // Log whenever con changes
+    }, [con]); // Dependency array ensures this effect runs whenever con changes
 
-  const Bamunimaidan=()=>{
-    navigate('/bamunimaidan')
-  }
-
-  return (
-  <>
-  <div className="container">
-    <div className="c1" id="z7"><button onClick={Neharu_Stadium_data}> Neharu Stadium</button></div>
-    <div className="c1" id="z2"><button onClick={Jail}>Jail</button></div>
-    <div className="c1" id="z1"><button onClick={Uzanbazar}>Uzanbazar</button></div>
-    <div className="c1" id="z3"><button onClick={Medical}>Medical</button></div>
-    <div className="c1" id="z4"><button onClick={Paltanbazar}>Paltanbazar</button></div>
-    <div className="c1" id="z5"><button onClick={Jalukbari}>Jalukbari</button></div>
-    <div className="c1" id="z5"><button onClick={Kalapahar}>Kalapahar</button></div>
-    <div className="c1" id="z5"><button onClick={Bamunimaidan}>Bamunimaidan</button></div>
-  </div>
-  </>
-  );
+    return (
+        <>
+            <div className="container">
+                <div className="c1" id="z7" >
+                    <button onClick={Neharu_Stadium_data}> Neharu Stadium</button>
+                </div>
+                <div className="c1" id="z2">
+                    <button onClick={Jail}>Jail</button>
+                </div>
+                <div className="c1" id="z1">
+                    <button onClick={Uzanbazar}>Uzanbazar</button>
+                </div>
+                <div className="c1" id="z3" style={{backgroundColor:con?'green':'red'}}>
+                    <button onClick={Medical}>Medical</button>
+                </div>
+                <div className="c1" id="z4">
+                    <button onClick={Paltanbazar}>Paltanbazar</button>
+                </div>
+                <div className="c1" id="z5">
+                    <button onClick={Jalukbari}>Jalukbari</button>
+                </div>
+                <div className="c1" id="z5">
+                    <button onClick={Kalapahar}>Kalapahar</button>
+                </div>
+                <div className="c1" id="z5">
+                    <button onClick={Bamunimaidan}>Bamunimaidan</button>
+                </div>
+            </div>
+        </>
+    );
 }
-export default Ng
+
+export default Ng;

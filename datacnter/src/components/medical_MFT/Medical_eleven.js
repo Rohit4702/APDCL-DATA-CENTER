@@ -19,6 +19,10 @@ function Medical_eleven() {
     const baseurl2 = 'http://localhost:4000/api/fidder/11KV_MEDICAL'
     const [dta, setdta] = useState([])
     const [fdta, setfdta] = useState([])
+    const [lastUpdateTime, setLastUpdateTime] = useState(Date.now());
+const [Datafetch, setDatafetch]=useState(false)
+
+
 
     useEffect(() => {
 
@@ -29,9 +33,25 @@ function Medical_eleven() {
 
                     const dataArray = Array.isArray(response.data) ? response.data : [response.data];
                     setdta(dataArray)
+                    setLastUpdateTime(Date.now());
+                    console.log(lastUpdateTime);
+                    setDatafetch(true)
+                    const difference=Date.now()-lastUpdateTime;
+                    console.log('difference',difference)
+                    if (difference<40000) {
+                        setDatafetch(false)
+                        console.log(Datafetch)
+                    }
+                    else{
+                        setDatafetch(true)
+                    }
+                    console.log("Time difference:", Date.now() - lastUpdateTime);
+                    console.log("Time:", Date.now());
                 })
             }catch(err){
                 console.error(err);
+            setDatafetch(false)
+
             }
 
 
@@ -74,8 +94,8 @@ function Medical_eleven() {
         <Table striped bordered hover size="sm"  style={{border:"2px solid black",  margin: '20px'}}>
             <thead>
                 <tr>
-                    <th><div style={{ borderRadius: "50%", height: "14px", width: '14px', background: "red" }}></div></th>
-                    <th><b>R-Y</b></th>
+                <th><div style={{ borderRadius: "50%", height: "14px", width: '14px', background:Datafetch?"green":"red"}}></div></th>
+                <th><b>R-Y</b></th>
                     <th><b>Y-B</b></th>
                     <th><b>B-R</b></th>
 
