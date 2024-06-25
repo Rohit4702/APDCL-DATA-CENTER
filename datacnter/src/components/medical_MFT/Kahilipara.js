@@ -69,21 +69,19 @@ function Kahilipara() {
         <div className='table_feeder'>
 
 
-            <div className="line_border">
-                <div className="line"></div>
-            </div>
-            <div className='feeder_indicator'>
-                {fdta.map((item, index) => (
-                    <div key={index} className="feeder" id="fd1" style={{ backgroundColor: item.status === 2 ? 'red' : 'green', border: "2px solid black", height: "30px", width: "30px" }}></div>
-                ))}
-            </div>
 
-            
-            <div className="line_border">
-                <div className="line"></div>
-                
-            </div>
-            <div className="name">11KV_KACHARI_BASTI</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <Table striped bordered hover size="sm" style={{ margin: '0px' }}>
@@ -135,6 +133,21 @@ function Kahilipara() {
 
 
 
+            <div className="line_border">
+                <div className="line"></div>
+            </div>
+            <div className='feeder_indicator'>
+                {fdta.map((item, index) => (
+                    <div key={index} className="feeder" id="fd1" style={{ backgroundColor: item.status === 2 ? 'red' : 'green', border: "2px solid black", height: "30px", width: "30px" }}></div>
+                ))}
+            </div>
+
+
+            <div className="line_border">
+                <div className="line"></div>
+
+            </div>
+            <div className="name">33KV_KAHILIPARA</div>
 
 
 
