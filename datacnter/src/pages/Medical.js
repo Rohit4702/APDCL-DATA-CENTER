@@ -20,43 +20,43 @@ function Medical() {
           
           
 
-            {/* <div> */}
-                {/* <div >11KV_NEW_GS</div> */}
-                {/* <New_gs /> */}
-            {/* </div> */}
+            <div>
+                <div >11KV_NEW_GS</div>
+                <New_gs />
+            </div>
             <div>
                 <div>11KV_KACHARI_BASTI</div>
                 <Kachari_Basti />
             </div>
-            {/* <div> */}
-                {/* <div>11KV_MEDICAL</div> */}
-                {/* <Medical_eleven /> */}
-            {/* </div> */}
+            <div>
+                <div>11KV_MEDICAL</div>
+                <Medical_eleven />
+            </div>
 
-            {/* <div> */}
-                {/* <div>11KV_OLD_GS</div> */}
-                {/* <Old_gs /> */}
-            {/* </div> */}
+            <div>
+                <div>11KV_OLD_GS</div>
+                <Old_gs />
+            </div>
 
-            {/* <div> */}
-                {/* <div>11KV_RUPNAGAR</div> */}
-                {/* <Rupnagar /> */}
-            {/* </div> */}
+            <div>
+                <div>11KV_RUPNAGAR</div>
+                <Rupnagar />
+            </div>
 
-            {/* <div> */}
-                {/* <div>11KV_TV</div> */}
-                {/* <KV_TV /> */}
-            {/* </div> */}
+            <div>
+                <div>11KV_TV</div>
+                <KV_TV />
+            </div>
 
-            {/* <div> */}
-                {/* <div>33KV_KAHILIPARA</div> */}
-                {/* <Kahilipara /> */}
-            {/* </div> */}
+            <div>
+                <div>33KV_KAHILIPARA</div>
+                <Kahilipara />
+            </div>
 
-            {/* <div> */}
-                {/* <div>33KV_ULUBARI</div> */}
-                {/* <Ulubari /> */}
-            {/* </div> */}
+            <div>
+                <div>33KV_ULUBARI</div>
+                <Ulubari />
+            </div>
 
 
 

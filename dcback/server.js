@@ -164,7 +164,7 @@ app.get('/api/fidder/:placename', cors(), async (req, res) => {
 
 
 
-app.get('/api/medicalp/:placename',cors(), async (req, resp) => {
+app.get('/api/medical/:placename',cors(), async (req, resp) => {
     const placeName = req.params.placename;
     try {
         const result = await data_center.findOne({ feeder: placeName });

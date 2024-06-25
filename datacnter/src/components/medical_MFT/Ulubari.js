@@ -20,62 +20,89 @@ function Ulubari() {
     const [dta, setdta] = useState([])
     const [fdta, setfdta] = useState([])
     const [lastUpdateTime, setLastUpdateTime] = useState(Date.now());
-const [Datafetch, setDatafetch]=useState(false)
+    const [Datafetch, setDatafetch] = useState(false)
+    const [dataFetchStatus, setDataFetchStatus] = useState(false);
+
 
 
 
     useEffect(() => {
 
         const fatchdata = async () => {
+
+
+            const savedDta = JSON.parse(localStorage.getItem('dta'));
+            const savedFdta = JSON.parse(localStorage.getItem('fdta'));
+            // if (savedDta) setdta(savedDta);
+            // if (savedFdta) setfdta(savedFdta);
+            
             try {
+                // if (savedDta) setdta(savedDta);
                 const response = await axios.get(baseurl1, {
                 }).then((response) => {
 
-                    const dataArray = Array.isArray(response.data) ? response.data : [response.data];
-                    setdta(dataArray)
+                    const dataArray1 = Array.isArray(response.data) ? response.data : [response.data];
+                    setdta(dataArray1)
+                    localStorage.setItem('dta', JSON.stringify(dataArray1));
 
-                    setLastUpdateTime(Date.now());
-                    console.log(lastUpdateTime);
-                    setDatafetch(true)
-                    const difference=Date.now()-lastUpdateTime;
-                    console.log('difference',difference)
-                    if (difference<40000) {
-                        setDatafetch(false)
-                        console.log(Datafetch)
-                    }
-                    else{
-                        setDatafetch(true)
-                    }
-                    console.log("Time difference:", Date.now() - lastUpdateTime);
-                    console.log("Time:", Date.now());
+                    const fetchedTime = dataArray1[0].time; // Assuming time is available in dataArray1
+                    setLastUpdateTime(prevTime => {
+                        const hasDataChanged = prevTime !== fetchedTime;
+                        setDataFetchStatus(hasDataChanged);
+                        return fetchedTime; // Update lastUpdateTime with fetched time
+                    });
+
 
                 })
             } catch (err) {
                 console.error(err);
-            setDatafetch(false)
+                setDatafetch(false)
+
+                // if (savedDta) setdta(savedDta);
+
+                if (err.response && err.response.status === 404) {
+                    setDataFetchStatus(false);
+                } else {
+                    console.error(err);
+                }
 
             }
+            // if (savedDta) setdta(savedDta);
 
             try {
                 const response = await axios.get(baseurl2, {
                 }).then((response) => {
                     const dataArray = Array.isArray(response.data) ? response.data : [response.data];
                     setfdta(dataArray)
+                    localStorage.setItem('fdta', JSON.stringify(dataArray));
                 })
             } catch (err) {
                 console.error(err);
+
             }
+            // if (savedDta) setdta(savedDta);
+
 
 
         };
         fatchdata();
 
-        const intervalid = setInterval(fatchdata, 20000)  //for intervel of 10s
+        const intervalid = setInterval(fatchdata, 10000)  //for intervel of 10s
+
+        const clearlocalStorage = setInterval(() => {
+            localStorage.removeItem('dta');
+            localStorage.removeItem('fdta');
+        }, 3600000); // Clear local storage every hour
+
 
         //    let dta=Array.dta
         console.log(dta)
 
-        // return ()=>clearInterval(intervalid)
+        return () => {
+            clearInterval(intervalid)
+            clearInterval(clearlocalStorage);
+
+        }
 
     }, [])
 
@@ -94,8 +121,8 @@ const [Datafetch, setDatafetch]=useState(false)
             <Table striped bordered hover size="sm" style={{ border: "2px solid black", margin: '20px' }}>
                 <thead>
                     <tr>
-                    <th><div style={{ borderRadius: "50%", height: "14px", width: '14px', background:Datafetch?"green":"red"}}></div></th>
-                    <th><b>R-Y</b></th>
+                        <th><div style={{ borderRadius: "50%", height: "14px", width: '14px', background: dataFetchStatus ? "green" : "red" }}></div></th>
+                        <th><b>R-Y</b></th>
                         <th><b>Y-B</b></th>
                         <th><b>B-R</b></th>
 

@@ -11,18 +11,13 @@ function Kachari_Basti() {
     const [fdta, setfdta] = useState([]);
     const [lastUpdateTime, setLastUpdateTime] = useState(null);
     const [dataFetchStatus, setDataFetchStatus] = useState(false);
-    const [con, setCon] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
-
             const savedDta = JSON.parse(localStorage.getItem('dta'));
             const savedFdta = JSON.parse(localStorage.getItem('fdta'));
             if (savedDta) setdta(savedDta);
             if (savedFdta) setfdta(savedFdta);
-
-
-
 
             try {
                 const [response1, response2] = await Promise.all([
@@ -31,41 +26,25 @@ function Kachari_Basti() {
                 ]);
 
                 const dataArray1 = Array.isArray(response1.data) ? response1.data : [response1.data];
-                setdta(dataArray1);
-                localStorage.setItem('dta', JSON.stringify(dataArray1));
-
-                console.log(dta, 'Dataaaa')
-
                 const dataArray2 = Array.isArray(response2.data) ? response2.data : [response2.data];
+                
+                setdta(dataArray1);
                 setfdta(dataArray2);
+                localStorage.setItem('dta', JSON.stringify(dataArray1));
                 localStorage.setItem('fdta', JSON.stringify(dataArray2));
 
-
                 const fetchedTime = dataArray1[0].time; // Assuming time is available in dataArray1
+
                 setLastUpdateTime(prevTime => {
-
-
-
                     const hasDataChanged = prevTime !== fetchedTime;
                     setDataFetchStatus(hasDataChanged);
-                    setCon(true)
-                    console.log('dataFetchStatus', dataFetchStatus)
                     return fetchedTime; // Update lastUpdateTime with fetched time
-
-
-
-
-
-
                 });
             } catch (err) {
-                // console.error(err);
-                if (err.response || err.response.status === 404) {
-                    setCon(false)
-                    setDataFetchStatus(false)
-                    console.log('setCon',con)
-                    console.log('setDataFetchStatus',setDataFetchStatus)
-
+                if (err.response && err.response.status === 404) {
+                    setDataFetchStatus(false);
+                } else {
+                    console.error(err);
                 }
             }
         };
@@ -77,24 +56,13 @@ function Kachari_Basti() {
         const clearlocalStorage = setInterval(() => {
             localStorage.removeItem('dta');
             localStorage.removeItem('fdta');
-
-        }, 3600000);
+        }, 3600000); // Clear local storage every hour
 
         return () => {
             clearInterval(intervalId);
             clearInterval(clearlocalStorage);
-        } // Cleanup interval on component unmount
+        }; // Cleanup intervals on component unmount
     }, []); // Empty dependency array ensures this effect runs only once on mount
-    // console.log('conconconcon',con)
-
-
-
-
-
-    useEffect(() => {
-
-        console.log('conconconco9999999999n', con);
-    }, [con]);
 
     return (
         <>

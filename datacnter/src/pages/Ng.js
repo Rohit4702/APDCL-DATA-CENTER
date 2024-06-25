@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import '../components/style/ng.css'
 
 function Ng() {
     const [con, setCon] = useState(false);
@@ -73,7 +74,7 @@ function Ng() {
         <>
             <div className="container">
                 <div className="c1" id="z7" >
-                    <button onClick={Neharu_Stadium_data}> Neharu Stadium</button>
+                    <button  onClick={Neharu_Stadium_data}> Neharu Stadium</button>
                 </div>
                 <div className="c1" id="z2">
                     <button onClick={Jail}>Jail</button>
@@ -81,8 +82,8 @@ function Ng() {
                 <div className="c1" id="z1">
                     <button onClick={Uzanbazar}>Uzanbazar</button>
                 </div>
-                <div className="c1" id="z3" style={{backgroundColor:con?'green':'red'}}>
-                    <button onClick={Medical}>Medical</button>
+                <div className="c1" id="z3" >
+                    <button style={{backgroundColor:con?'green':'red'}} onClick={Medical}>Medical</button>
                 </div>
                 <div className="c1" id="z4">
                     <button onClick={Paltanbazar}>Paltanbazar</button>

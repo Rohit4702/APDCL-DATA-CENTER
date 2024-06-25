@@ -1,0 +1,19 @@
+.c1{
+    border: 2px solid orange;
+    margin: 10px;
+    display: inline-block;
+    
+}
+
+.container{
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    /* background-color: red; */
+    color: white;
+    height: 45px;
+  width: 101px;
+}
