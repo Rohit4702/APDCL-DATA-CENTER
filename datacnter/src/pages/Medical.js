@@ -10,7 +10,7 @@ import Ulubari from '../components/medical_MFT/Ulubari';
 
 function Medical() {
     return (
-        <div>
+        <div style={{backgroundColor:'black',color:'wheat'}}>
             <h3>Medical</h3>
           
           
@@ -21,40 +21,50 @@ function Medical() {
           
 
             <div>
-                <div >11KV_NEW_GS</div>
+                {/* <div ></div> */}
                 <New_gs />
             </div>
+            <br />
             <div>
-                <div>11KV_KACHARI_BASTI</div>
+                {/* <div></div> */}
                 <Kachari_Basti />
             </div>
+            <br />
+
             <div>
-                <div>11KV_MEDICAL</div>
+                {/* <div></div> */}
                 <Medical_eleven />
             </div>
 
+            <br />
+
+
             <div>
-                <div>11KV_OLD_GS</div>
+                {/* <div>\</div> */}
                 <Old_gs />
             </div>
+            <br />
 
             <div>
-                <div>11KV_RUPNAGAR</div>
+             
                 <Rupnagar />
             </div>
+            <br />
 
             <div>
-                <div>11KV_TV</div>
+                {/* <div>11KV_TV</div> */}
                 <KV_TV />
             </div>
+            <br />
 
             <div>
-                <div>33KV_KAHILIPARA</div>
+                {/* <div>33KV_KAHILIPARA</div> */}
                 <Kahilipara />
             </div>
+            <br />
 
             <div>
-                <div>33KV_ULUBARI</div>
+                {/* <div>33KV_ULUBARI</div> */}
                 <Ulubari />
             </div>
 
