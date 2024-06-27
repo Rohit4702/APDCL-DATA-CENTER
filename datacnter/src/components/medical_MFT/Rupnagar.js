@@ -85,7 +85,7 @@ function Rupnagar() {
                 <div className="line"></div>
                 
             </div>
-            <div className="name">11KV_KACHARI_BASTI</div>
+            <div className="name">11KV_RUPNAGAR</div>
 
 
             <Table striped bordered hover size="sm" style={{ margin: '0px' }}>

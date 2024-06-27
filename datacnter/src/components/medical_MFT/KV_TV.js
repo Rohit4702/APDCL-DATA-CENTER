@@ -84,7 +84,7 @@ function KV_TV() {
                 <div className="line"></div>
                 
             </div>
-            <div className="name">11KV_KACHARI_BASTI</div>
+            <div className="name">11KV_TV</div>
 
 
             <Table striped bordered hover size="sm" style={{ margin: '0px' }}>

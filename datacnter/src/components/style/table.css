@@ -38,12 +38,24 @@ table th{
     /* width: 30px; */
 }
 
+#line1p1{
+
+    border: 2px solid rgb(255, 115, 0);
+    display: flex;
+    height: 85px;
+    /* margin-top: 0px; */
+    margin-left: 60px;
+    /* width: 2px; */
+    justify-content: center;
+
+}
+
 
 .table_feeder{
     /* border: 3px solid pink; */
     display: inline-block;
     justify-content: center;
-    width: 22%;
+    /* width: ; */
     
 }
 
@@ -57,7 +69,8 @@ table th{
 
     border: 2px solid cyan;
     display: flex;
-    height: 40px;
+    height: 45px;
+    /* margin-top: 15px; */
     /* width: 2px; */
     justify-content: center;
 
@@ -75,4 +88,177 @@ table th{
     /* border: 2px solid red; */
     display: grid;
     justify-content: center;
+}
+
+.head{
+    display:grid;
+    justify-content: center;
+}
+.hr_line{
+    border-top: 2px solid green;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px; /* Adjust height as needed */
+}
+.vertical_line {
+    width: 2px;
+    height: 50px; /* Adjust height as needed */
+    background-color: green;
+    margin-left: 400px;
+    display: inline-block;
+    position: absolute;
+    top: 330px;
+}
+.vertical_line2 {
+    width: 2px;
+    height: 50px; /* Adjust height as needed */
+    background-color: green;
+    margin-left: 950px;
+    display: inline-block;
+    position: absolute;
+    top: 330px;
+}
+.spacer {
+    width: 200px; /* Adjust spacing between vertical lines as needed */
+}
+
+.cont_ulubari{
+    font-size: small;
+}
+
+.tab_ulubari{
+    margin: 30px;
+    margin-left: 250px;
+    display: inline-block;
+    position: absolute;
+    top: 350px;
+}
+.tab_kahilipara{
+    margin: 30px;
+    margin-left: 850px;
+    display: inline-block;
+    position: absolute;
+    top: 350px;
+}
+
+.br_mini{
+    /* display: inline-flex; */
+    border-top: 3px solid green;
+    width: 55%;
+    margin-left: 20%;
+    margin-top: 300px;
+    margin-bottom: 0px;
+}
+
+.br_mini_1{
+    border-top: 3px solid green;
+    width: 42%;
+    /* margin-left: 3%; */
+    margin-top: 0%;
+    display: inline-block;
+
+}
+.br_mini_2{
+    border-top: 3px solid green;
+    width: 45%;
+    /* margin-left: 50%; */
+    margin-top: 0%;
+    display: inline-block;
+
+}
+
+.line_border_2{
+    /* border: 2px solid rgb(255, 247, 0); */
+    /* border: 2px solid cyan; */
+    display: inline-flex;
+    justify-content: center;
+    width: 40%;
+    /* margin-top: 315px; */
+}
+
+/* .line2{
+
+    border: 2px solid cyan;
+    display: flex;
+    height: 40px;
+    /* width: 2px; */
+    /* justify-content: center;
+    margin-left: 750px;
+} */
+ 
+.tab_newgs{
+    /* margin: 30px; */
+    margin-left: 25px;
+    display: inline-block;
+    position: absolute;
+    /* top: 350px; */
+}
+.tab_medical_eleven{
+    margin-left: 230px;
+    display: inline-block;
+    position: absolute;
+}
+.tab_tv{
+    margin-left: 440px;
+    display: inline-block;
+    position: absolute;
+
+}
+.line1{
+
+    border: 2px solid cyan;
+    display: flex;
+    height: 85px;
+    /* margin-top: 0px; */
+    margin-left: 60px;
+    /* width: 2px; */
+    justify-content: center;
+
+}
+.cont_1{
+    margin-top: 0%;
+    display: flex;
+    flex-flow: row ;
+    font-size: small;
+}
+.cont_2{
+    margin-top: 0%;
+    display: flex;
+    flex-flow: row ;
+    font-size: small;
+    margin-left: 50%;
+    row-gap: 20px;
+}
+
+.tab_kachari_basti{
+
+}
+
+.tab_old_gs{
+    margin-left: 20px;
+}
+
+.tab_rupnagar{
+    margin-left: 20px;
+}
+
+
+.line_border_30{
+    /* border: 2px solid rgb(255, 247, 0); */
+    /* border: 2px solid rgb(255, 208, 0); */
+    display: inline-flex;
+    justify-content: center;
+    width: 55%;
+    /* margin-top: 315px; */
+}
+
+.br{
+    /* border: 2px solid orange; */
+    display:flex;
+    justify-content: space-between;
 }
